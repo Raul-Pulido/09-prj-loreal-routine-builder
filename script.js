@@ -4,7 +4,8 @@ const productsContainer = document.getElementById("productsContainer");
 const chatForm = document.getElementById("chatForm");
 const chatWindow = document.getElementById("chatWindow");
 
-/* Show initial placeholder until user selects a category */
+// Hide products grid at start
+productsContainer.classList.add("hidden");
 productsContainer.innerHTML = `
   <div class="placeholder-message">
     Select a category to view products
@@ -278,10 +279,14 @@ function filterAndDisplayProducts() {
   let filtered = allProducts;
   const selectedCategory = categoryFilter.value;
   const searchTerm = productSearch.value.trim().toLowerCase();
+  // Show/hide products grid based on category selection
   if (selectedCategory) {
+    productsContainer.classList.remove("hidden");
     filtered = filtered.filter(
       (product) => product.category === selectedCategory,
     );
+  } else {
+    productsContainer.classList.add("hidden");
   }
   if (searchTerm) {
     filtered = filtered.filter(

@@ -178,6 +178,10 @@ body {
   margin: 30px 0;
 }
 
+.products-grid.hidden {
+  display: none !important;
+}
+
 .product-card {
   flex: 0 1 calc(33.333% - 14px);
   border: 1px solid #ccc;
